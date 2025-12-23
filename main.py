@@ -2,6 +2,7 @@ class Car:
     def __init__(self, model):
         self.model = model
         self.__mileage = 0 
+        self.moving = True
 
     def drive(self):
         print(f"{self.model} is driving!")
@@ -15,6 +16,10 @@ class Car:
         else:
             print("Error: You can't roll back mileage!")
 
+
+    def apply_brake(self):
+        print("Slowing down...")
+        self.is_moving = False
 
     def make_sound(self):
         print("Beep Beep!")
@@ -41,10 +46,13 @@ class Truck(Car):
 print("--- Testing Inheritance & Encapsulation ---")
 my_ev = ElectricCar("Tesla Model 3", 75)
 my_ev.drive()
+print("Is moving:",my_ev.is_moving)
 my_ev.charge()
 my_ev.update_mileage(150)
 my_ev.read_mileage()
-my_ev.update_mileage(100) 
+my_ev.update_mileage(100)
+my_ev.apply_brake()
+print("Is moving:",my_ev.is_moving)
 
 print("\n--- Testing Polymorphism ---")
 garage = [Car("Toyota"), ElectricCar("BYD", 60), Truck("Volvo")]
