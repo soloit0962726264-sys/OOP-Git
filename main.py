@@ -2,7 +2,7 @@ class Car:
     def __init__(self, model):
         self.model = model
         self.__mileage = 0 
-        self.moving = True
+        self.is_moving = True
 
     def drive(self):
         print(f"{self.model} is driving!")
